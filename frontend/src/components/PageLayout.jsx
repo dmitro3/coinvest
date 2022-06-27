@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './Footer'
 import Header from './Header'
 import PriceBar from './PriceBar'
 
@@ -8,6 +9,7 @@ const PageLayout = ({children}) => {
         <PriceBar/>
         <Header/>
         {children}
+        <Footer/>
     </div>
   )
 }
