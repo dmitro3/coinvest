@@ -3,7 +3,7 @@ import AppHeader from './AppHeader'
 
 const AppLayout = ({children}) => {
   return (
-    <div className="flex flex-col w-full bg-blue-50">
+    <div className="flex flex-col w-full bg-gray-100">
         <AppHeader/>
         <div className='p-4'>
             {children}

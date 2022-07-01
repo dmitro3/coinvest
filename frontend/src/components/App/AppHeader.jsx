@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
-
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import ConnectWallet from './ConnectWallet';
 const AppHeader = () => {
   return (
         <div className="flex w-full py-4 px-4 bg-gray-50 shadow-sm text-gray-800 justify-between">
+        
             <div className="flex items-center space-x-2">
                 <Link to="/">
                     <p className="text-xl font-semibold">Escoin</p>
@@ -24,7 +26,9 @@ const AppHeader = () => {
                 </NavLink>
             </div>
             <div className="flex items-center space-x-2">
-                <Link to="/app" className="p-3 px-5 font-semibold bg-green-500 rounded-xl">Connect Wallet</Link>
+                {/* <Link to="/app" className="p-3 px-5 font-semibold bg-green-500 rounded-xl">Connect Wallet</Link> */}
+                {/* <ConnectButton /> */}
+                <ConnectWallet/>
             </div>
         </div>
   )
