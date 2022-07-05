@@ -4,7 +4,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import ConnectWallet from './ConnectWallet';
 const AppHeader = () => {
   return (
-        <div className="flex w-full py-4 px-4 bg-gray-50 shadow-sm text-gray-800 justify-between">
+        <div className="flex w-full py-4 px-4 bg-white shadow-sm text-gray-800 justify-between">
         
             <div className="flex items-center space-x-2">
                 <Link to="/">
