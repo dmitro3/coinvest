@@ -5,8 +5,9 @@ const Header = () => {
     <div className="flex w-full py-4 bg-gray-900">
         <div className="container flex mx-auto text-white justify-between">
             <div className="flex items-center space-x-2">
-                <Link to="/">
-                    <p className="text-xl font-semibold">Escoin</p>
+                <Link to="/" className="flex items-center mb-4 sm:mb-0">
+                    <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-8" alt="Flowbite Logo"/>
+                    <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">Escoin</span>
                 </Link>
             </div>
             <div className="flex items-center space-x-8">

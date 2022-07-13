@@ -1,0 +1,182 @@
+export const pairs = [
+    {
+        name: "WETH/USDT",
+        symbol: "WETHUSDT",
+        type: "crypto-crypto",
+        token1: {
+            name: "Wrapped ETH",
+            symbol: "WETH",
+            address: "0x3C68CE8504087f89c640D02d133646d98e64ddd9",
+            icon: require("./cryptos/eth.png"),
+            decimal: 18,
+            priceAddress:"0x0715A7794a1dc8e42615F059dD6e406A6594651A",
+        },
+        token2: {
+            name: "Tether",
+            symbol: "USDT",
+            address: "0xBD21A10F619BE90d6066c941b04e340841F1F989",
+            icon: require("./cryptos/usdt.png"),
+            decimal:6,
+            priceAddress:"0x92C09849638959196E976289418e5973CC96d645"
+        }
+    },
+    {
+        name: "WBTC/USDT",
+        symbol: "WBTCUSDT",
+        type: "crypto-crypto",
+        token1: {
+            name: "Wrapped BTC",
+            symbol: "WBTC",
+            address: "0x0d787a4a1548f673ed375445535a6c7A1EE56180",
+            icon: require("./cryptos/wbtc.png"),
+            decimal: 8,
+            priceAddress:"0x007A22900a3B98143368Bd5906f8E17e9867581b",
+        },
+        token2: {
+            name: "Tether",
+            symbol: "USDT",
+            address: "0xBD21A10F619BE90d6066c941b04e340841F1F989",
+            icon: require("./cryptos/usdt.png"),
+            decimal:6,
+            priceAddress:"0x92C09849638959196E976289418e5973CC96d645"
+        },
+    },
+    {
+        name: "MATIC/USDT",
+        symbol: "MATICUSDT",
+        type: "crypto-crypto",
+        token1: {
+            name: "MATIC",
+            symbol: "MATIC",
+            address: "0x0000000000000000000000000000000000000000",
+            icon: require("./cryptos/matic.png"),
+            decimal: 8,
+            priceAddress:"0xd0D5e3DB44DE05E9F294BB0a3bEEaF030DE24Ada",
+        },
+        token2: {
+            name: "Tether",
+            symbol: "USDT",
+            address: "0xBD21A10F619BE90d6066c941b04e340841F1F989",
+            icon: require("./cryptos/usdt.png"),
+            decimal:6,
+            priceAddress:"0x92C09849638959196E976289418e5973CC96d645"
+        },
+    },
+    {
+        name: "WETH/USDC",
+        symbol: "WETHUSDC",
+        type: "crypto-crypto",
+        token1: {
+            name: "Wrapped ETH",
+            symbol: "WETH",
+            address: "0x3C68CE8504087f89c640D02d133646d98e64ddd9",
+            icon: require("./cryptos/eth.png"),
+            decimal: 18,
+            priceAddress:"0x0715A7794a1dc8e42615F059dD6e406A6594651A",
+        },
+        token2: {
+            name: "USD Coin",
+            symbol: "USDC",
+            address: "0x2058A9D7613eEE744279e3856Ef0eAda5FCbaA7e",
+            icon: require("./cryptos/usdc.png"),
+            decimal:6,
+            priceAddress:"0x572dDec9087154dC5dfBB1546Bb62713147e0Ab0",
+        }
+    },
+    {
+        name: "WBTC/USDC",
+        symbol: "WBTCUSDC",
+        type: "crypto-crypto",
+        token1: {
+            name: "Wrapped BTC",
+            symbol: "WBTC",
+            address: "0x0d787a4a1548f673ed375445535a6c7A1EE56180",
+            icon: require("./cryptos/wbtc.png"),
+            decimal: 8,
+            priceAddress:"0x007A22900a3B98143368Bd5906f8E17e9867581b",
+        },
+        token2: {
+            name: "USD Coin",
+            symbol: "USDC",
+            address: "0x2058A9D7613eEE744279e3856Ef0eAda5FCbaA7e",
+            icon: require("./cryptos/usdc.png"),
+            decimal:6,
+            priceAddress:"0x572dDec9087154dC5dfBB1546Bb62713147e0Ab0",
+        },
+    },
+    {
+        name: "MATIC/USDC",
+        symbol: "MATICUSDC",
+        type: "crypto-crypto",
+        token1: {
+            name: "MATIC",
+            symbol: "MATIC",
+            address: "0x0000000000000000000000000000000000000000",
+            icon: require("./cryptos/matic.png"),
+            decimal: 8,
+            priceAddress:"0xd0D5e3DB44DE05E9F294BB0a3bEEaF030DE24Ada",
+        },
+        token2: {
+            name: "USD Coin",
+            symbol: "USDC",
+            address: "0x2058A9D7613eEE744279e3856Ef0eAda5FCbaA7e",
+            icon: require("./cryptos/usdc.png"),
+            decimal:6,
+            priceAddress:"0x572dDec9087154dC5dfBB1546Bb62713147e0Ab0",
+        },
+    },
+    {
+        name: "WETH/INR",
+        symbol: "WETHINR",
+        type: "crypto-fiat",
+        token1: {
+            name: "Wrapped ETH",
+            symbol: "WETH",
+            address: "0x3C68CE8504087f89c640D02d133646d98e64ddd9",
+            icon: require("./cryptos/eth.png"),
+            decimal: 18,
+            priceAddress:"0x0715A7794a1dc8e42615F059dD6e406A6594651A",
+        },
+        token2: {
+            name: "Indian Rupee",
+            symbol: "INR",
+            icon: require("./rupee.jpg"),
+        }
+    },
+    {
+        name: "WBTC/INR",
+        symbol: "WBTCINR",
+        type: "crypto-fiat",
+        token1: {
+            name: "Wrapped BTC",
+            symbol: "WBTC",
+            address: "0x0d787a4a1548f673ed375445535a6c7A1EE56180",
+            icon: require("./cryptos/wbtc.png"),
+            decimal: 8,
+            priceAddress:"0x007A22900a3B98143368Bd5906f8E17e9867581b",
+        },
+        token2: {
+            name: "Indian Rupee",
+            symbol: "INR",
+            icon: require("./rupee.jpg"),
+        },
+    },
+    {
+        name: "MATIC/INR",
+        symbol: "MATICINR",
+        type: "crypto-fiat",
+        token1: {
+            name: "MATIC",
+            symbol: "MATIC",
+            address: "0x0000000000000000000000000000000000000000",
+            icon: require("./cryptos/matic.png"),
+            decimal: 8,
+            priceAddress:"0xd0D5e3DB44DE05E9F294BB0a3bEEaF030DE24Ada",
+        },
+        token2: {
+            name: "Indian Rupee",
+            symbol: "INR",
+            icon: require("./rupee.jpg"),
+        },
+    },
+];

@@ -1,0 +1,1 @@
+export { pairs as  Pairs } from "./pairs"
