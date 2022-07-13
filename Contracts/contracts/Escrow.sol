@@ -12,6 +12,7 @@ contract Escrow is Ownable {
     enum State { CANCELED, AWAITING_DELIVERY, COMPLETE }
 
     Counters.Counter transactionIds;
+    uint256 escrowFee = 100;
 
     struct EscrowTransaction {
         uint256 transactionId;
@@ -62,10 +63,10 @@ contract Escrow is Ownable {
         }
         for(uint i=0; i<txns.length; i++){
             if(txns[i].currency == address(0)){
-                txns[i].payee.transfer(txns[i].amount);
+                txns[i].depositor.transfer(txns[i].amount);
             }else{
                 IERC20 erc20token = IERC20(txns[i].currency);
-                erc20token.transfer(txns[i].payee, txns[i].amount);
+                erc20token.transfer(txns[i].depositor, txns[i].amount);
             }
             txns[i]._state = State.COMPLETE;
         }
@@ -76,6 +77,12 @@ contract Escrow is Ownable {
         EscrowTransaction[] storage txns = transactions[_orderId];
         for(uint i=0; i<txns.length; i++){
             txns[i]._state = State.CANCELED;
+            if(txns[i].currency == address(0)){
+                txns[i].payee.transfer(txns[i].amount);
+            }else{
+                IERC20 erc20token = IERC20(txns[i].currency);
+                erc20token.transfer(txns[i].payee, txns[i].amount);
+            }
         }
         emit TransactionCanceled(txns);
     }
