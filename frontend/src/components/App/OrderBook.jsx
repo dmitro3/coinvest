@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const OrderBook = () => {
+  const [buyOrders, setByOrders] = useState([1,2,3,4,5,6,7,8,9,10]);
+  const [sellOrders,setSellOrders] = useState([1,2,3,4,5,6,7,8,9,10]);
   return (
     <div className="w-full">
         <div className="p-4 text-xl font-semibold border-b w-full">
@@ -18,23 +20,32 @@ const OrderBook = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="p-2 align-middle bg-transparent text-center whitespace-nowrap shadow-transparent text-sm">
-              234
-            </td>
-            <td className="p-2 align-middle bg-transparent text-green-500 text-center whitespace-nowrap shadow-transparent text-sm">
-              2455
-            </td>
-          </tr>
+          {
+            buyOrders.map((order) => (
+            <tr key={order}>
+              <td className="p-2 align-middle bg-transparent text-center whitespace-nowrap shadow-transparent text-sm">
+                234
+              </td>
+              <td className="p-2 align-middle bg-transparent text-green-500 text-center whitespace-nowrap shadow-transparent text-sm">
+                2455
+              </td>
+            </tr>
+            ))
+          }
 
-          <tr>
-            <td className="p-2 align-middle bg-transparent text-center whitespace-nowrap shadow-transparent text-xs">
-              234
-            </td>
-            <td className="p-2 align-middle bg-transparent text-red-500 text-center whitespace-nowrap shadow-transparent text-xs">
-              2455
-            </td>
-          </tr>
+          {
+            sellOrders.map((order) => (
+            <tr key={order}>
+              <td className="p-2 align-middle bg-transparent text-center whitespace-nowrap shadow-transparent text-xs">
+                234
+              </td>
+              <td className="p-2 align-middle bg-transparent text-red-500 text-center whitespace-nowrap shadow-transparent text-xs">
+                2455
+              </td>
+            </tr>
+            ))
+          }
+
         </tbody>
       </table>
     </div>

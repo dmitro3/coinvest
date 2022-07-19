@@ -11,7 +11,7 @@ const AppHeader = () => {
                     <p className="text-xl font-semibold">Escoin</p>
                 </Link>
             </div>
-            <div className="flex items-center space-x-8">
+            {/* <div className="flex items-center space-x-8">
                 <NavLink to="/escorw" className="text-gray-400 font-medium">
                     <p>Escorw</p>
                 </NavLink>
@@ -24,7 +24,7 @@ const AppHeader = () => {
                 <NavLink to="/about-us" className="text-gray-400 font-medium">
                     <p>About Us</p>
                 </NavLink>
-            </div>
+            </div> */}
             <div className="flex items-center space-x-2">
                 {/* <Link to="/app" className="p-3 px-5 font-semibold bg-green-500 rounded-xl">Connect Wallet</Link> */}
                 {/* <ConnectButton /> */}
