@@ -1,7 +1,36 @@
 import React from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import {
+  useAccount,
+  useContractRead,
+  useContractWrite,
+  useWaitForTransaction,
+} from 'wagmi';
+import { useSignMessage } from 'wagmi'
+import { useEffect } from "react";
+
 const ConnectWallet = () => {
+  
+  const { data, isError, isLoading, isSuccess, signMessage }  = useSignMessage({
+    message: 'gm wagmi frens',
+    onSettled(data, error) {
+      console.log('Settled', { data, error })
+    },
+    onError(error) {
+      console.log('Error', error)
+    },
+  })
+
+  useAccount({
+    onConnect({address, connector, isReconnecting }){
+      console.log("Is Reconnecting", isReconnecting)
+      console.log("Connected to ", address)
+      signMessage()
+    }
+  });
+
+
   return (
     <ConnectButton.Custom>
       {({

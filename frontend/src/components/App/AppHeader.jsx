@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import ConnectWallet from './ConnectWallet';
+
 const AppHeader = () => {
   return (
         <div className="flex w-full py-4 px-4 bg-white shadow-sm text-gray-800 justify-between">
