@@ -16,11 +16,12 @@ import {
 } from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
+import CustomAvatar from './components/App/CustomAvatar';
 
 const { chains, provider } = configureChains(
   [chain.polygonMumbai],
   [
-    alchemyProvider({ alchemyId: process.env.ALCHEMY_ID }),
+    alchemyProvider({ alchemyId: process.env.REACT_APP_ALCHEMY_ID }),
     publicProvider()
   ]
 );
@@ -36,10 +37,28 @@ const wagmiClient = createClient({
   provider
 })
 
+const Disclaimer = ({ Text, Link }) => (
+  <Text>
+    By connecting your wallet, you agree to the{' '}
+    <Link href="https://termsofservice.xyz">Terms of Service</Link> and
+    acknowledge you have read and understand the protocol{' '}
+    <Link href="https://disclaimer.xyz">Disclaimer</Link>
+  </Text>
+);
+
+
 function App() {
   return (
     <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider showRecentTransactions={true} chains={chains}>
+      <RainbowKitProvider 
+        showRecentTransactions={true} 
+        // avatar={CustomAvatar} 
+        chains={chains}
+        appInfo={{
+          appName: 'P2P Escrow Exchange',
+          disclaimer: Disclaimer,
+        }}
+      >
         <div className="flex min-h-screen bg-gray-50 dark:bg-gray-700">
         <BrowserRouter>
           <Routes>

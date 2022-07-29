@@ -15,7 +15,10 @@ const OrderSchema = new mongoose.Schema({
         type: Number,
         require: true,
     },
-
+    quantity: {
+        type: Number,
+        require: true,
+    }
 },{ timestamps: true });
 
 module.exports = mongoose.model('Order', OrderSchema);

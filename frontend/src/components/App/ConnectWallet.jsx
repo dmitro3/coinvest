@@ -9,24 +9,38 @@ import {
 } from 'wagmi';
 import { useSignMessage } from 'wagmi'
 import { useEffect } from "react";
+import useAuth from "../../store/authStore";
 
 const ConnectWallet = () => {
-  
+  const { userProfile, address, nonce, getUserNonce, loginUser, setConnectedAddress, setLoginStatus, loginStatus } = useAuth();
+
   const { data, isError, isLoading, isSuccess, signMessage }  = useSignMessage({
-    message: 'gm wagmi frens',
+    message: `Verify your nonce: ${nonce}`,
     onSettled(data, error) {
       console.log('Settled', { data, error })
+      loginUser({ eth_address: address, signature: data })
     },
     onError(error) {
       console.log('Error', error)
+      setLoginStatus("Rejected")
     },
   })
 
+  // console.log("Nonce", nonce)
+  useEffect(() => {
+    if(nonce !== 0 && (loginStatus !== 'rejected' && loginStatus !== 'loggedin')){
+      signMessage()
+    }else if(loginStatus !== 'loggedin'){
+      loginUser({ eth_address: address, signature: "" })
+    }
+  },[nonce])
+
   useAccount({
     onConnect({address, connector, isReconnecting }){
-      console.log("Is Reconnecting", isReconnecting)
-      console.log("Connected to ", address)
-      signMessage()
+      // console.log("Is Reconnecting", isReconnecting);
+      // console.log("Connected to ", address);
+      setConnectedAddress(address);
+      getUserNonce(address);
     }
   });
 

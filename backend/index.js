@@ -7,6 +7,7 @@ const schema = require('./schema/schema');
 const connectDB = require('./config/db');
 
 const UserRoutes = require("./routes/UserRoutes");
+const OrderRoutes = require("./routes/OrderRoutes");
 
 const port = process.env.PORT || 5000;
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/user", UserRoutes);
+app.use("/api/orders", OrderRoutes);
 // app.use(
 //   '/graphql',
 //   graphqlHTTP({
