@@ -29,7 +29,7 @@ const authStore = (set) => ({
         useApi.post("/user/auth", {
             eth_address,
             signature
-        }).then((res) => set({ userProfile: res.data, loginStatus: 'loggedin' }))
+        }).then((res) => set({ userProfile: res.data.user, loginStatus: 'loggedin' }))
     }
 });
 

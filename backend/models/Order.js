@@ -18,6 +18,11 @@ const OrderSchema = new mongoose.Schema({
     quantity: {
         type: Number,
         require: true,
+    },
+    status:{
+        type: String,
+        required: true,
+        default: 'open'
     }
 },{ timestamps: true });
 
