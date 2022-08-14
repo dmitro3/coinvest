@@ -8,6 +8,8 @@ const connectDB = require('./config/db');
 
 const UserRoutes = require("./routes/UserRoutes");
 const OrderRoutes = require("./routes/OrderRoutes");
+const TokenRoutes = require("./routes/TokensRoutes");
+const BasketRoutes = require("./routes/BasketRoutes");
 
 const port = process.env.PORT || 5000;
 
@@ -20,6 +22,8 @@ app.use(cors());
 
 app.use("/api/user", UserRoutes);
 app.use("/api/orders", OrderRoutes);
+app.use("/api/tokens", TokenRoutes);
+app.use("/api/baskets", BasketRoutes);
 // app.use(
 //   '/graphql',
 //   graphqlHTTP({

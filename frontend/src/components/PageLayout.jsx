@@ -6,7 +6,7 @@ import PriceBar from './PriceBar'
 const PageLayout = ({children}) => {
   return (
     <div className="flex flex-col w-full">
-        <PriceBar/>
+        {/* <PriceBar/> */}
         <Header/>
         {children}
         <Footer/>

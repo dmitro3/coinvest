@@ -77,6 +77,45 @@ const getOrders = asyncHandler(async (req, res) => {
     }
 });
 
+const getOrderBook = asyncHandler(async (req, res) => {
+
+    let limit = 10;
+    // pair: ObjectId(pair)
+    let orders = await Order.aggregate(
+        [
+          // First Stage
+          {
+            $group :
+              {
+                _id : "$item",
+                totalSaleAmount: { $sum: { $multiply: [ "$price", "$quantity" ] } }
+              }
+           },
+           // Second Stage
+           {
+             $match: { "totalSaleAmount": { $gte: 100 } }
+           }
+         ]
+       )
+
+    // get total documents in the Posts collection 
+    const count = await Order.countDocuments();
+    // res.status(200).json(count);
+    console.log(count)
+
+    if(count > 0){
+        res.status(200).json({
+            orders,
+            // totalPages: Math.ceil(count / limit),
+            // currentPage: page
+        });
+    } else {
+        res.status(404).json({
+            error: "No data found"
+        })
+    }
+});
+
 const getUserOrders = asyncHandler(async (req, res) => {
     let { user, page = 1, status = '' } = req.query;
 
@@ -125,9 +164,4 @@ const getPairs = asyncHandler(async (req, res) => {
     res.status(201).json(Pairs)
 })
 
-const getTokens = asyncHandler(async (req, res) => {
-    const tokens = await Token.find().exec();
-    res.status(201).json(tokens)
-});
-
-module.exports = { createOrder, getOrders, createPairs, getPairs, getTokens, getUserOrders };
+module.exports = { createOrder, getOrders, createPairs, getPairs, getUserOrders, getOrderBook };

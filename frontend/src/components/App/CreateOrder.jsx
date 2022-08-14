@@ -18,7 +18,7 @@ const CreateOrder = () => {
   } = useExchange();
 
   const { data, isError, isLoading } = useBalance({
-    addressOrName: userProfile.eth_address,
+    addressOrName: userProfile !== null ? userProfile.eth_address : "",
     token: selectedTradingPair.token1.address !== "0x0000000000000000000000000000000000000000" ? selectedTradingPair.token1.address : "",
   })
   console.log("Data", data);
@@ -98,6 +98,7 @@ const CreateOrder = () => {
       <button
         className="flex items-center justify-center border rounded-xl text-center p-2 space-x-1 px-2 bg-green-500 text-white font-semibold"
         onClick={handleBuyNow}
+        disabled={data?.formatted <= 0}
       >
         <span>Buy</span>
       </button>
@@ -152,6 +153,7 @@ const CreateOrder = () => {
       <button
         className="flex items-center justify-center border rounded-xl text-center p-2 space-x-1 px-2 bg-red-500 text-white font-semibold"
         onClick={handleSellNow}
+        disabled={data?.formatted <= 0}
       >
         <span>Sell</span>
       </button>

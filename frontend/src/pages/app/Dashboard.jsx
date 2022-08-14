@@ -20,8 +20,10 @@ const Dashboard = () => {
   const { selectedTradingPair, getOrders, openOrders, completeOrders, getOpenOrder, getCompleteOrder } = useExchange();
 
   useEffect(() => {
-    getOpenOrder(userProfile._id, page);
-    getCompleteOrder(userProfile._id, page);
+    if(userProfile !== null){
+      getOpenOrder(userProfile._id, page);
+      getCompleteOrder(userProfile._id, page);
+    }
     getOrders(selectedTradingPair._id, page);
   }, [selectedTradingPair]);
 
