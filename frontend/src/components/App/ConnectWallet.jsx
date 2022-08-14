@@ -85,7 +85,7 @@ const ConnectWallet = () => {
 
               return (
                 <div style={{ display: "flex", gap: 12 }}>
-                  <button
+                  {/* <button
                     onClick={openChainModal}
                     style={{ display: "flex", alignItems: "center" }}
                     type="button"
@@ -111,12 +111,13 @@ const ConnectWallet = () => {
                       </div>
                     )}
                     {chain.name}
-                  </button>
+                  </button> */}
 
                   <button onClick={openAccountModal} type="button" className="flex p-1 text-sm font-semibold bg-gray-100 border border-gray-50 rounded-xl items-center">
                     <span className="p-2 px-3 rounded-lg flex items-center space-x-2">{account.displayBalance
                       ? ` (${account.displayBalance})`
                       : ""}</span>
+
                     <span className="bg-white p-2 px-3 rounded-lg flex items-center space-x-2">{account.displayName}<MdKeyboardArrowDown className="font-semibold mt-1"/></span>
                   </button>
                 </div>

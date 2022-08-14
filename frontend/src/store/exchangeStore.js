@@ -6,6 +6,7 @@ import useApi from "../hooks/api";
 
 const exchangeStore = (set, get) => ({
     tradingPairs: [],
+    tokens: [],
     selectedTradingPair: null,
     openOrders:[],
     completeOrders:[],
@@ -13,6 +14,9 @@ const exchangeStore = (set, get) => ({
     selectPair: (pair) => set({ selectedTradingPair: pair }),
     getPairs: () => {
         useApi.get("/orders/pairs").then((res) => set({ tradingPairs: res.data, selectedTradingPair: res.data[0] })) 
+    },
+    getTokens: () => {
+        useApi.get("/tokens").then((res) => set({ tokens: res.data })) 
     },
     getOrders: (pair, page) => {
         useApi.get(`/orders?pair=${pair}`).then((res) => {

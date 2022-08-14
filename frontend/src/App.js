@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Dashboard from './pages/app/Dashboard';
 import Welcome from './pages/Welcome';
+import Discover from "./pages/app/Discover";
 import '@rainbow-me/rainbowkit/styles.css';
 import {
   getDefaultWallets,
@@ -17,6 +18,7 @@ import {
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 import CustomAvatar from './components/App/CustomAvatar';
+import Mybaskets from './pages/app/Mybaskets';
 
 const { chains, provider } = configureChains(
   [chain.polygonMumbai],
@@ -66,6 +68,8 @@ function App() {
             <Route path="/about" element={<div>About</div>}/>
             <Route path="/contact" element={<div>Contact</div>}/>
             <Route path="/app" element={<Dashboard/>}/>
+            <Route path="/app/discover" element={<Discover/>}/>
+            <Route path="/app/mybaskets" element={<Mybaskets/>}/>
           </Routes>
         </BrowserRouter>
         </div>
