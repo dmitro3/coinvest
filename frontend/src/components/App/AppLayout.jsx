@@ -4,7 +4,7 @@ import AppHeader from './AppHeader'
 
 const AppLayout = ({children}) => {
   return (
-    <div className="flex flex-col w-full bg-gray-100 p-6">
+    <div className="flex flex-col w-full  p-6 container mx-auto">
         <AppHeader/>
         <div className='py-4'>
             {children}

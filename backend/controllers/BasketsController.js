@@ -10,17 +10,7 @@ const getBaskets = asyncHandler(async (req, res) => {
     }
     let limit = 10;
     // pair: ObjectId(pair)
-    let baskets = await Basket.find(query).populate({
-        path: "pair",
-        populate: {
-            path: "token1"
-        }
-    }).populate({
-        path: "pair",
-        populate: {
-            path: "token2"
-        }
-    }).populate("user").limit(limit * 1)
+    let baskets = await Basket.find(query).populate("tokens").populate("user").limit(limit * 1)
     .skip((page - 1) * limit)
     .exec();
 
@@ -32,6 +22,8 @@ const getBaskets = asyncHandler(async (req, res) => {
     if(count > 0){
         res.status(200).json({
             baskets,
+            showing: baskets.length,
+            total: count,
             totalPages: Math.ceil(count / limit),
             currentPage: page
         });

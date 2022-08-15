@@ -1,24 +1,32 @@
 import React from 'react'
 import { useEffect } from 'react'
+import useApi from '../../hooks/api';
 import useExchange from '../../store/exchangeStore';
+import moment from 'moment';
 
-const BasketRow = () => {
+const BasketRow = ({ basket }) => {
+    
     const { getTokens, tokens } = useExchange()
     useEffect(() => {
         if(tokens.length <= 0){
             getTokens();
         }
     },[]);
+
+    const renderMenu = () => {
+        
+    }
+
   return (
-    <div className="p-4 border rounded-xl hover:shadow-md border-b-gray-200 hover:border-gray-200 border-white mb-3 cursor-pointer">
+    <div className="p-4 border hover:rounded-xl hover:shadow-md border-b-gray-200 hover:border-gray-200 border-white mb-3 cursor-pointer">
         <div className="flex flex-1">
             <div className="w-[9%]">
-                <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png" style={{height:'64px', width:'64px' }} alt='title' className="h-14 w-14 border"/>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS323CR-EiCEkfFMDRKnSfXcSTnsrlhqz4Ouu-wNs93jcpTOz6xzeZqiFcILt7C5bEI4L0&usqp=CAU" style={{height:'64px', width:'64px' }} alt='title' className="h-14 w-14 border"/>
             </div>
             <div className="flex w-[60%]">
                 <div>
-                    <p className="text-xl font-semibold">Long Term Compounders</p>
-                    <p className="text-sm text-gray-500">Large and Mid caps with stable business growth and strong competitive advantages</p>
+                    <p className="text-xl font-semibold">{basket.name}</p>
+                    <p className="text-sm text-gray-500">{basket.description}</p>
                 </div>
             </div>
             <div className="flex justify-end w-[30%]">
@@ -34,7 +42,7 @@ const BasketRow = () => {
             </div>
             <div className='flex flex-col items-center justify-center p-4 '>
                 <span className="text-sm font-medium text-gray-400">Returns Since</span>
-                <span className="text-gray-600 text-lg">May 10, 2022</span>
+                <span className="text-gray-600 text-lg">{moment(new Date(basket.createdAt)).format('MMMM Do, YYYY')}</span>
             </div>
             <div className='flex flex-col items-center justify-center p-4 '>
                 <span className="text-sm font-medium text-gray-400">Min. Amount</span>
@@ -44,7 +52,7 @@ const BasketRow = () => {
                 <span className="text-sm font-medium text-gray-400">Investment Assets</span>
                 <div className="flex justify-center -space-x-4 p-2 overflow-hidden">   
                 {
-                    tokens.map((token, i) => {
+                    basket.tokens.map((token, i) => {
                     if(token){
                         return (
                         <div className="inline-block h-10 w-10 rounded-full ring-2 ring-white relative" key={i}>   
