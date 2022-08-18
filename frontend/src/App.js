@@ -19,6 +19,7 @@ import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 import CustomAvatar from './components/App/CustomAvatar';
 import Mybaskets from './pages/app/Mybaskets';
+import MySingleBasket from './pages/app/MySingleBasket';
 
 const { chains, provider } = configureChains(
   [chain.polygonMumbai],
@@ -69,7 +70,8 @@ function App() {
             <Route path="/contact" element={<div>Contact</div>}/>
             <Route path="/app" element={<Dashboard/>}/>
             <Route path="/app/discover" element={<Discover/>}/>
-            <Route path="/app/mybaskets" element={<Mybaskets/>}/>
+            <Route path="/app/baskets" element={<Mybaskets/>}/>
+            <Route path="/app/baskets/:id" element={<MySingleBasket/>}/>
           </Routes>
         </BrowserRouter>
         </div>

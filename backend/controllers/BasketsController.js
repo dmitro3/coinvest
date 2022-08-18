@@ -3,10 +3,13 @@ const Basket = require("../models/Basket");
 const { ObjectId } = require('mongodb');
 
 const getBaskets = asyncHandler(async (req, res) => {
-    let { user, page = 1 } = req.query;
+    let { user, basket, page = 1 } = req.query;
     let query = {};
     if(user){
         query.user = ObjectId(user)
+    }
+    if(basket){
+        query._id = ObjectId(basket)
     }
     let limit = 10;
     // pair: ObjectId(pair)
@@ -62,7 +65,32 @@ const createBasket = asyncHandler(async (req, res) => {
 });
 
 const updateBasket = asyncHandler(async (req, res) => {
-    
+    const { basket } = req.params;
+    const { tokens } = req.body;
+
+    let query = {};
+    if(tokens){
+        let tokensArr = [];
+        tokens.forEach((item, index) => {
+            tokensArr.push(ObjectId(item));
+        })
+        req.body.tokens = tokensArr;
+    }
+    // if(name) {
+    //     query.name = name;
+    // }
+    // if(description) {
+    //     query.description = description;
+    // }
+    const fetchedBasket = await Basket.findOneAndUpdate(
+        { _id: basket },
+        { $set: req.body }
+    ).exec();
+    console.log(fetchedBasket);
+    fetchedBasket.update()
+    await fetchedBasket.populate("user")
+    await fetchedBasket.populate("tokens")
+    res.status(200).json({ message: "Updated Successfully!", basket: fetchedBasket});
 });
 
 const deleteBasket = asyncHandler(async (req, res) => {

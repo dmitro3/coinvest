@@ -23,7 +23,7 @@ const AppHeader = () => {
                     <BiRadar/>
                     <p>Discover</p>
                 </NavLink>
-                <NavLink exact to="/app/mybaskets" className={({ isActive }) => isActive ? activeLinkClass : linkClass}>
+                <NavLink exact to="/app/baskets" className={({ isActive }) => isActive ? activeLinkClass : linkClass}>
                     <BiAtom/>
                     <p>My Baskets</p>
                 </NavLink>

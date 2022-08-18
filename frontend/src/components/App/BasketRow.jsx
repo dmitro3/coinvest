@@ -5,6 +5,7 @@ import useExchange from '../../store/exchangeStore';
 import moment from 'moment';
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { Menu, Transition } from '@headlessui/react';
+import { NavLink } from 'react-router-dom';
 
 const BasketRow = ({ basket }) => {
     
@@ -39,24 +40,14 @@ const BasketRow = ({ basket }) => {
             <div className="px-1 py-1 ">
               <Menu.Item>
                 {({ active }) => (
-                  <button
+                  <NavLink
                     className={`${
                       active ? 'bg-violet-500 text-white' : 'text-gray-900'
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
-                    Edit Details
-                  </button>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    to={`/app/baskets/${basket._id}`}
                   >
                     Customize
-                  </button>
+                  </NavLink>
                 )}
               </Menu.Item>
             </div>
@@ -65,7 +56,7 @@ const BasketRow = ({ basket }) => {
                 {({ active }) => (
                   <button
                     className={`${
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                      active ? 'bg-violet-500 text-white' : 'text-red-500'
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
                     Delete
