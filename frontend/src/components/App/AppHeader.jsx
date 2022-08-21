@@ -10,7 +10,7 @@ const AppHeader = () => {
         <div className="flex w-full py-4 px-4 bg-white shadow-sm text-gray-800 justify-between rounded-xl">
         
             <div className="flex items-center space-x-2">
-                <Link to="/">
+                <Link to="/app">
                     <p className="text-xl text-purple-600 font-semibold"><span>Coinvest</span>{' '}<span className="text-xs font-light">(Beta)</span></p>
                 </Link>
             </div>

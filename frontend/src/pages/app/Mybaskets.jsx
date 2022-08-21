@@ -17,10 +17,10 @@ const Mybaskets = () => {
   const { userProfile } = useAuth();
   console.log("User", userProfile);
   const getMyBaskets = () => {
-
         useApi.get(`/baskets?user=${userProfile._id}&page=${page}&status=open`).then((res) => {
             setBaskets(res.data.baskets);
             setTotalPages(res.data.totalPages);
+            setTotal(res.data.total)
         })
     }
   useEffect(() => {
@@ -35,7 +35,7 @@ const Mybaskets = () => {
         <div className="flex items-center justify-between py-3">
             <div>
                 <p className="text-2xl font-semibold">Created Baskets</p>
-                <span className="text-gray-500">You have 0 saved baskets</span>
+                <span className="text-gray-500">You have {total} saved baskets</span>
             </div>
             <div>
                 <CreateBasket/>
