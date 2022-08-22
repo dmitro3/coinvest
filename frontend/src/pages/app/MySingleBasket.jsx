@@ -11,6 +11,8 @@ import useExchange from "../../store/exchangeStore";
 import CryptoDropdown from "../../components/App/CryptoDropdown";
 import { TiDelete } from "react-icons/ti";
 import { getUsdPrice } from "../../hooks/useChainlink";
+import InvestBasket from "../../components/App/InvestBasket";
+
 const MySingleBasket = () => {
   const { id } = useParams();
   const { tokens } = useExchange();
@@ -216,6 +218,7 @@ const MySingleBasket = () => {
               <button className="border text-white bg-green-600 py-3 font-semibold px-4 rounded-xl mt-4">
                 Invest Now
               </button>
+              <InvestBasket basket={basket}/>
               <button className="flex items-center justify-center space-x-2 border text-purple-600 border-purple-600 py-3 font-semibold px-4 rounded-xl mt-4" onClick={saveBasket} disabled={isSaving}>
                 {isSaving && <CgSpinnerTwoAlt className="animate-spin"/>}
                 {!isSaving ? <span>Save Basket</span> : <span>Saving...</span>}

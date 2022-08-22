@@ -5,7 +5,7 @@ import useAuth from "../../store/authStore";
 import { CgSpinnerTwoAlt } from "react-icons/cg";
 import toast, { Toaster } from 'react-hot-toast';
 
-export default function CreateBasket() {
+const InvestBasket = ({ basket }) => {
   let [isOpen, setIsOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false);
   const { userProfile } = useAuth();
@@ -47,7 +47,7 @@ export default function CreateBasket() {
           onClick={openModal}
           className="bg-purple-600 py-2 px-4 rounded-xl text-white hover:bg-purple-700 duration-200"
         >
-          Create Basket
+          Invest Now
         </button>
 
       <Transition appear show={isOpen} as={Fragment}>
@@ -80,13 +80,13 @@ export default function CreateBasket() {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Invest in your ideas 
+                    Invest in <span className="font-semibold">{basket?.name}</span>
                   </Dialog.Title>
-                  <div className="mt-2 mb-6">
+                  {/* <div className="mt-2 mb-6">
                     <p className="text-sm text-gray-500">
-                        Create a basket of your own token picks. Invest immediately or save it for later
+                        Create a smallcase of your own stock picks. Invest immediately or save it for later
                     </p>
-                  </div>
+                  </div> */}
                   <div className="flex flex-col justify-between w-full">
                     <div className="flex flex-1 ">
                         <form onSubmit={handleCreateBasket} className="relative w-full space-y-8">
@@ -128,3 +128,5 @@ export default function CreateBasket() {
     </>
   )
 }
+
+export default InvestBasket;
