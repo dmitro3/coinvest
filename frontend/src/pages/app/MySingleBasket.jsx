@@ -215,9 +215,9 @@ const MySingleBasket = () => {
                 </span>
                 <span className="text-3xl text-gray-700">$ {parseFloat(minimumInvestment).toFixed(2)}</span>
               </div>
-              <button className="border text-white bg-green-600 py-3 font-semibold px-4 rounded-xl mt-4">
+              {/* <button className="border text-white bg-green-600 py-3 font-semibold px-4 rounded-xl mt-4">
                 Invest Now
-              </button>
+              </button> */}
               <InvestBasket basket={basket}/>
               <button className="flex items-center justify-center space-x-2 border text-purple-600 border-purple-600 py-3 font-semibold px-4 rounded-xl mt-4" onClick={saveBasket} disabled={isSaving}>
                 {isSaving && <CgSpinnerTwoAlt className="animate-spin"/>}

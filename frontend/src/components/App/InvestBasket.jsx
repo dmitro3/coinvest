@@ -45,7 +45,7 @@ const InvestBasket = ({ basket }) => {
         <button
           type="button"
           onClick={openModal}
-          className="bg-purple-600 py-2 px-4 rounded-xl text-white hover:bg-purple-700 duration-200"
+          className="border text-white bg-green-600 py-3 font-semibold px-4 rounded-xl mt-4"
         >
           Invest Now
         </button>
